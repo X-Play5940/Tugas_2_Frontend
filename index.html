@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Masuk | PahamIn</title>
+  <meta name="description" content="Halaman masuk PahamIn, asisten belajar mandiri.">
+ 
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- KOMPONEN 1: Header dengan navigasi -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#">PahamIn</a>
+
+      <!-- Tombol menu untuk layar kecil -->
+      <button type="button" id="nav-toggle" class="nav-toggle"
+              aria-expanded="false" aria-controls="main-nav">Menu</button>
+
+      <nav id="main-nav" class="main-nav" aria-label="Navigasi utama">
+        <ul>
+          <li><a href="#">Beranda</a></li>
+          <li><a href="#">Riwayat</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="login-section" aria-labelledby="judul-masuk">
+      <p class="eyebrow">Akun PahamIn</p>
+      <h1 id="judul-masuk">Masuk</h1>
+      <p class="subtitle">Masuk untuk menyimpan riwayat dan melanjutkan belajarmu.</p>
+
+      <!-- KOMPONEN 2: Form login dengan validasi -->
+      <form id="login-form" novalidate>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email"
+                 placeholder="nama@contoh.com" autocomplete="email"
+                 required aria-describedby="email-error">
+          <p class="error-message" id="email-error"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Kata sandi</label>
+          <div class="password-wrapper">
+            <input type="password" id="password" name="password"
+                   placeholder="Masukkan kata sandi" autocomplete="current-password"
+                   minlength="8" required aria-describedby="password-error">
+
+            <!-- KOMPONEN 3: Tombol tampilkan/sembunyikan kata sandi -->
+            <button type="button" id="toggle-password" class="btn-toggle"
+                    aria-label="Tampilkan kata sandi" aria-pressed="false">Tampilkan</button>
+          </div>
+          <p class="error-message" id="password-error"></p>
+        </div>
+
+        <!-- KOMPONEN 4: Tombol Masuk -->
+        <button type="submit" class="btn-primary">Masuk</button>
+
+        <!-- Pesan status setelah form dikirim (simulasi) -->
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <!-- KOMPONEN 5: Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>PahamIn · Asisten belajar mandiri</p>
+      <p>Periksa kembali jawaban dengan materi asli.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

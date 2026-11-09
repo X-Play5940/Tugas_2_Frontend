@@ -1,0 +1,261 @@
+/* ==========================================================
+   PahamIn: Halaman Masuk
+   Gaya wireframe abu-abu, mengikuti desain Figma Tugas 1.
+   ========================================================== */
+
+/* ---------- Custom property: warna, spacing, tipografi ---------- */
+:root {
+  /* Warna */
+  --warna-latar: #ffffff;
+  --warna-teks: #1f1f1f;
+  --warna-teks-sekunder: #5f5f5f;
+  --warna-garis: #d4d4d4;
+  --warna-aksen: #2b2b2b;        /* tombol utama */
+  --warna-aksen-hover: #000000;
+  --warna-error: #b91c1c;
+  --warna-sukses: #166534;
+
+  /* Spacing: skala kelipatan 8 px */
+  --jarak-1: 8px;
+  --jarak-2: 16px;
+  --jarak-3: 24px;
+  --jarak-4: 32px;
+  --jarak-6: 48px;
+  --jarak-10: 80px;              /* margin sisi, sama dengan grid desain */
+
+  /* Tipografi */
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --ukuran-dasar: 1rem;          /* 16 px */
+  --radius: 2px;
+}
+
+/* ---------- Reset sederhana ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font);
+  font-size: var(--ukuran-dasar);
+  line-height: 1.5;
+  color: var(--warna-teks);
+  background: var(--warna-latar);
+}
+
+/* Pembungkus konten: margin sisi mengikuti grid desain */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: var(--jarak-10);
+}
+
+a { color: inherit; }
+
+/* Fokus keyboard terlihat jelas (aksesibilitas) */
+:focus-visible {
+  outline: 3px solid var(--warna-aksen);
+  outline-offset: 2px;
+}
+
+/* ---------- Komponen 1: Header ---------- */
+.site-header {
+  border-bottom: 1px solid var(--warna-garis);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.main-nav ul {
+  display: flex;
+  gap: var(--jarak-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-nav a {
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.main-nav a:hover { text-decoration: underline; }
+
+/* Tombol menu disembunyikan di layar lebar */
+.nav-toggle {
+  display: none;
+  padding: var(--jarak-1) var(--jarak-2);
+  font: inherit;
+  font-size: 0.875rem;
+  color: var(--warna-teks);
+  background: transparent;
+  border: 1px solid var(--warna-garis);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+/* ---------- Bagian utama ---------- */
+main {
+  flex: 1;
+  padding-block: var(--jarak-6);
+}
+
+.login-section {
+  width: 100%;
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+.eyebrow {
+  margin: 0 0 var(--jarak-1);
+  font-size: 0.875rem;
+  color: var(--warna-teks-sekunder);
+}
+
+h1 {
+  margin: 0 0 var(--jarak-1);
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin: 0 0 var(--jarak-4);
+  font-size: 0.875rem;
+  color: var(--warna-teks-sekunder);
+}
+
+/* ---------- Komponen 2: Form login ---------- */
+.form-group { margin-bottom: var(--jarak-3); }
+
+label {
+  display: block;
+  margin-bottom: var(--jarak-1);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: var(--jarak-2);
+  font: inherit;
+  color: var(--warna-teks);
+  background: var(--warna-latar);
+  border: 1px solid var(--warna-garis);
+  border-radius: var(--radius);
+}
+
+input::placeholder { color: var(--warna-teks-sekunder); }
+
+/* Kolom bermasalah ditandai garis merah + pesan teks (bukan warna saja) */
+input[aria-invalid="true"] {
+  border-color: var(--warna-error);
+  border-width: 2px;
+}
+
+.error-message {
+  min-height: 1.5em;             /* mencegah layout melompat saat pesan muncul */
+  margin: var(--jarak-1) 0 0;
+  font-size: 0.875rem;
+  color: var(--warna-error);
+}
+
+/* ---------- Komponen 3: Tombol tampilkan kata sandi ---------- */
+.password-wrapper { position: relative; }
+.password-wrapper input { padding-right: 104px; }
+
+.btn-toggle {
+  position: absolute;
+  top: 50%;
+  right: var(--jarak-1);
+  transform: translateY(-50%);
+  padding: var(--jarak-1) var(--jarak-2);
+  font: inherit;
+  font-size: 0.875rem;
+  color: var(--warna-teks);
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.btn-toggle:hover { text-decoration: underline; }
+
+/* ---------- Komponen 4: Tombol utama ---------- */
+.btn-primary {
+  min-width: 160px;
+  padding: var(--jarak-2) var(--jarak-4);
+  font: inherit;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--warna-aksen);
+  border: 0;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.btn-primary:hover { background: var(--warna-aksen-hover); }
+
+.form-status {
+  min-height: 1.5em;
+  margin: var(--jarak-2) 0 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--warna-sukses);
+}
+
+/* ---------- Komponen 5: Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--warna-garis);
+  font-size: 0.875rem;
+  color: var(--warna-teks-sekunder);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--jarak-2);
+  padding-block: var(--jarak-3);
+}
+
+.footer-inner p { margin: 0; }
+
+/* ---------- Responsif: layar kecil ---------- */
+@media (max-width: 720px) {
+  .container { padding-inline: var(--jarak-3); }
+
+  .header-inner { flex-wrap: wrap; padding-block: var(--jarak-2); }
+
+  .nav-toggle { display: inline-block; }
+
+  /* Menu disembunyikan sampai tombol Menu ditekan */
+  .main-nav { display: none; width: 100%; }
+  .main-nav.terbuka { display: block; }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: var(--jarak-2);
+    padding-top: var(--jarak-2);
+  }
+
+  .footer-inner { flex-direction: column; }
+}
+
+/* Hormati pengguna yang membatasi animasi */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
